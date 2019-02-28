@@ -1,12 +1,13 @@
 {
-  "name": "babel-typescript-sample",
-  "version": "0.7.0",
+  "name": "webhooks-serve",
+  "version": "0.0.1",
   "license": "MIT",
   "bin": {
     "webhooks-serve": "./bin/webhooks-serve.js"
   },
   "scripts": {
-    "start": "concurrently \"npm:start:types\" \"npm:start:js\" \"npm:type-check:watch\"",
+    "start": "concurrently \"npm:start:server\" \"npm:start:types\" \"npm:start:js\" \"npm:type-check:watch\"",
+    "start:server": "nodemon ./lib/index.js",
     "start:types": "tsc --emitDeclarationOnly",
     "start:js": "babel -w ./src -d ./lib --extensions \".ts,.js\" --ignore **/*.spec.js",
     "type-check": "tsc --noEmit",
@@ -16,9 +17,16 @@
     "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
     "test": "jest",
     "test:watch": "jest --watch",
+    "precommit": "lint-staged",
     "preversion": "npm run build",
     "postversion": "npm run release",
     "release": "git push --follow-tags # && npm run build && npm publish lib"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --parser typescript --single-quote --write",
+      "git add"
+    ]
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
@@ -27,10 +35,23 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-typescript": "^7.1.0",
+    "@types/body-parser": "^1.17.0",
+    "@types/express": "^4.16.1",
     "@types/jest": "^24.0.6",
+    "@types/morgan": "^1.7.35",
     "concurrently": "^4.1.0",
+    "husky": "^1.3.1",
     "jest": "^24.1.0",
+    "lint-staged": "^8.1.4",
+    "nodemon": "^1.18.10",
+    "prettier": "^1.16.4",
     "ts-jest": "^24.0.0",
     "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
   }
 }

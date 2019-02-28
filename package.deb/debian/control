@@ -1,0 +1,7 @@
+Package: webhooks-serve
+Version: 0.0.1
+Section: misc
+Priority: optional
+Architecture: all
+Maintainer: extg <0777144@gmail.com>
+Description: Webhooks.service

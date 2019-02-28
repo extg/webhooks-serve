@@ -1,9 +1,9 @@
-import {run} from '.'
+import { run } from '.';
 
-test('run', () => {
-  console.log = jest.fn()
+xtest('run', () => {
+  console.log = jest.fn();
 
-  run()
+  run();
 
-  expect(console.log).toBeCalledWith('Hello world!')
-})
+  expect(console.log).toBeCalledWith('Hello world!');
+});
