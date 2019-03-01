@@ -6,15 +6,18 @@
     "webhooks-serve": "./bin/webhooks-serve.js"
   },
   "scripts": {
+    "postinstall": "bash scripts/postinstall.sh",
     "start": "concurrently \"npm:start:server\" \"npm:start:types\" \"npm:start:js\" \"npm:type-check:watch\"",
     "start:server": "nodemon ./lib/index.js",
     "start:types": "tsc --emitDeclarationOnly",
-    "start:js": "babel -w ./src -d ./lib --extensions \".ts,.js\" --ignore **/*.spec.js",
+    "start:js": "babel -w ./src -d ./lib --extensions \".ts,.js\"",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
+    "prebuild": "rm -rf ./lib",
     "build": "npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly",
-    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.js\" --source-maps inline",
+    "postbuild": "bash scripts/postbuild.sh",
     "test": "jest",
     "test:watch": "jest --watch",
     "precommit": "lint-staged",
@@ -23,10 +26,7 @@
     "release": "git push --follow-tags # && npm run build && npm publish lib"
   },
   "lint-staged": {
-    "*.ts": [
-      "prettier --parser typescript --single-quote --write",
-      "git add"
-    ]
+    "*.{ts,js,json}": ["prettier --write", "git add"]
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",

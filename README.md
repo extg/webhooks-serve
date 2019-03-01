@@ -9,20 +9,20 @@
   - [ ] 
 - [ ] [How to Use Node.js and Github Webhooks to Keep Remote Projects in Sync](https://www.digitalocean.com/community/tutorials/how-to-use-node-js-and-github-webhooks-to-keep-remote-projects-in-sync)
 - [ ] Использовать [@octokit/webhooks](https://github.com/octokit/webhooks.js/)
-- [ ]
+- [ ] [Deploy node on Linux](https://github.com/certsimple/deploy-node-on-linux)
+- [ ] Подумать над [post-receive.sh](https://gist.github.com/zanematthew/4597331)
+  или может достаточно через husky добавить хуки в проект
+
+## Installing
 
 Идеальный план деплоя проекта
 
 ```bash
+# ➜  ~ su git
+# git@dafisha:/root$
 cd /var/www
-git clone  
-```
-
-## Installing
-
-```bash
-
-
+git clone --bare https://github.com/extg/webhooks-serve
+# Cloning into bare repository 'webhooks-serve.git'...
 ```
 
 ## Start
