@@ -24,6 +24,8 @@ coverage
 build/
 dist/
 lib/
+# туда копируем файлы после сборки
+webhooks-serve/var/
 
 # Dependency directories
 node_modules/

@@ -1,6 +1,5 @@
 # webhooks-serve
 
-
 - [ ] Сделать Systemd service 
 - [ ] Как проще всего установить такой сервис
   - [ ] Можно попробовать собрать пакет [Creating Debian/Ubuntu .deb packages](http://www.king-foo.com/2011/11/creating-debianubuntu-deb-packages/)
@@ -10,8 +9,10 @@
 - [ ] [How to Use Node.js and Github Webhooks to Keep Remote Projects in Sync](https://www.digitalocean.com/community/tutorials/how-to-use-node-js-and-github-webhooks-to-keep-remote-projects-in-sync)
 - [ ] Использовать [@octokit/webhooks](https://github.com/octokit/webhooks.js/)
 - [ ] [Deploy node on Linux](https://github.com/certsimple/deploy-node-on-linux)
+  - https://certsimple.com/blog/deploy-node-on-linux
 - [ ] Подумать над [post-receive.sh](https://gist.github.com/zanematthew/4597331)
   или может достаточно через husky добавить хуки в проект
+
 
 ## Installing
 

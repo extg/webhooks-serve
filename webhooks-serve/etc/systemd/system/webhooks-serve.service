@@ -1,0 +1,11 @@
+[Service]
+ExecStart=/var/www/webhooks-serve/index.js
+Restart=always
+User=nobody
+Group=nogroup
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/var/www/webhooks-serve
+
+[Install]
+WantedBy=multi-user.target

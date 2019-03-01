@@ -5,6 +5,7 @@
   "bin": {
     "webhooks-serve": "./bin/webhooks-serve.js"
   },
+  "main": "lib/index.js",
   "scripts": {
     "postinstall": "bash scripts/postinstall.sh",
     "start": "concurrently \"npm:start:server\" \"npm:start:types\" \"npm:start:js\" \"npm:type-check:watch\"",
